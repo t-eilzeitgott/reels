@@ -1,4 +1,4 @@
-// reels render v1.0.0: renders one random, "satisfying" video from the Talfahrt Studio page.
+// reels render v1.1.0: renders one random, "satisfying" video from the Talfahrt Studio page.
 // usage: AVOID=presse,leinen node render.mjs <studio index.html> <out.mp4> [presetId] [seed]
 import { chromium } from 'playwright';
 import fs from 'node:fs';
@@ -12,6 +12,7 @@ const POOL = [
   ['leinen', 6], ['b_zeitlupe', 6], ['b_trampolin', 5], ['b_glas', 5], ['b_gummi', 4], ['b_zuend', 4],
   ['b_regen', 4], ['b_fibo', 3], ['b_drei', 3], ['b_pakete', 2],
   ['presse', 6], ['vier', 3], ['dreh', 3], ['splitter', 2],
+  ['klingen', 6], ['klingen_dreh', 4], ['klingen_streifen', 3], ['klingen_graphit', 3],
   ['ringe', 3], ['ringschwarm', 2], ['wachsen', 2], ['kette', 2],
   ['sanduhr', 2], ['galton', 2], ['glockenspiel', 1], ['brunnen', 1], ['loch', 1], ['trommel', 1], ['mandala', 1]
 ];
