@@ -1,45 +1,112 @@
 {
-  "version": "1.2.0",
-  "note": "Curated Studio variants for the daily reel (India first, but international). Each variant = Studio preset + extra settings. 'scene' and 'tags' build the caption: 'Satisfying <scene> Ball until <until>' + '#satisfying #oddlysatisfying <tags>'. 'special' = MM-DD of a holiday on which this variant replaces the plan.",
+  "version": "1.3.0",
+  "note": "Curated Studio variants (Talfahrt Studio 3.3) for the daily reel (India first, but international). Each variant = Studio preset + extra settings. 'scene' and 'tags' build the caption: 'Satisfying <scene> Ball until <until>' + '#satisfying #oddlysatisfying <tags>'. 'special' = MM-DD of a holiday on which this variant replaces the plan.",
   "variants": [
     {
       "id": "remix",
       "name": "Bänder: Zeitlupe-Remix",
       "preset": "leinen",
       "scene": "Slice",
-      "tags": ["#slowmotion", "#physics"],
-      "set": { "ropeRebound": "hop", "ropeHop": 650, "ropeSlow": 3, "ropeSlowFrom": 64, "ropeZoom": 1.3, "ropeDust": 0.5, "ropeCam": "front", "ropeColor": "level", "ropeBright": 0.85, "ropeThick": 4, "ropeGap": 10, "ropePop": false, "ropeFlash": 0.25, "ropeEndSwing": 1.4 }
+      "tags": [
+        "#slowmotion",
+        "#physics"
+      ],
+      "set": {
+        "ropeRebound": "hop",
+        "ropeHop": 650,
+        "ropeSlow": 3,
+        "ropeSlowFrom": 64,
+        "ropeZoom": 1.3,
+        "ropeDust": 0.5,
+        "ropeCam": "front",
+        "ropeColor": "level",
+        "ropeBright": 0.85,
+        "ropeThick": 4,
+        "ropeGap": 10,
+        "ropePop": false,
+        "ropeFlash": 0.25,
+        "ropeEndSwing": 1.4
+      }
     },
     {
       "id": "remix4096",
       "name": "Bänder: Zeitlupe-Remix bis 4096",
       "preset": "leinen",
       "scene": "Slice",
-      "tags": ["#slowmotion", "#physics"],
-      "set": { "ropeRebound": "hop", "ropeHop": 650, "ropeSlow": 3, "ropeSlowFrom": 64, "ropeZoom": 1.3, "ropeDust": 0.5, "ropeCam": "front", "ropeColor": "level", "ropeBright": 0.85, "ropeThick": 4, "ropeGap": 10, "ropePop": false, "ropeFlash": 0.25, "ropeEndSwing": 1.4, "ropeLevels": 11, "length": 34 }
+      "tags": [
+        "#slowmotion",
+        "#physics"
+      ],
+      "set": {
+        "ropeRebound": "hop",
+        "ropeHop": 650,
+        "ropeSlow": 3,
+        "ropeSlowFrom": 64,
+        "ropeZoom": 1.3,
+        "ropeDust": 0.5,
+        "ropeCam": "front",
+        "ropeColor": "level",
+        "ropeBright": 0.85,
+        "ropeThick": 4,
+        "ropeGap": 10,
+        "ropePop": false,
+        "ropeFlash": 0.25,
+        "ropeEndSwing": 1.4,
+        "ropeLevels": 11,
+        "length": 34
+      }
     },
     {
       "id": "rainbow",
       "name": "Bänder: Regenbogen-Remix",
       "preset": "b_regen",
       "scene": "Rainbow Slice",
-      "tags": ["#satisfyingvideo", "#colors"],
-      "set": { "ropeRebound": "hop", "ropeHop": 650, "ropeSlow": 3, "ropeSlowFrom": 64, "ropeZoom": 1.3, "ropeDust": 0.5, "ropeCam": "front", "ropePop": false, "ropeFlash": 0.25 }
+      "tags": [
+        "#satisfyingvideo",
+        "#colors"
+      ],
+      "set": {
+        "ropeRebound": "hop",
+        "ropeHop": 650,
+        "ropeSlow": 3,
+        "ropeSlowFrom": 64,
+        "ropeZoom": 1.3,
+        "ropeDust": 0.5,
+        "ropeCam": "front",
+        "ropePop": false,
+        "ropeFlash": 0.25
+      }
     },
     {
       "id": "glass",
       "name": "Bänder: Glas-Remix",
       "preset": "b_glas",
       "scene": "Glass Slice",
-      "tags": ["#satisfyingvideo", "#glass"],
-      "set": { "ropeRebound": "hop", "ropeHop": 650, "ropeSlow": 3, "ropeSlowFrom": 64, "ropeZoom": 1.3, "ropeCam": "front", "ropePop": false, "ropeFlash": 0.25, "ropeBright": 0.8 }
+      "tags": [
+        "#satisfyingvideo",
+        "#glass"
+      ],
+      "set": {
+        "ropeRebound": "hop",
+        "ropeHop": 650,
+        "ropeSlow": 3,
+        "ropeSlowFrom": 64,
+        "ropeZoom": 1.3,
+        "ropeCam": "front",
+        "ropePop": false,
+        "ropeFlash": 0.25,
+        "ropeBright": 0.8
+      }
     },
     {
       "id": "klingen",
       "name": "Klingen",
       "preset": "klingen",
       "scene": "Blade",
-      "tags": ["#satisfyingvideo", "#physics"],
+      "tags": [
+        "#satisfyingvideo",
+        "#physics"
+      ],
       "set": {}
     },
     {
@@ -47,7 +114,65 @@
       "name": "Presse",
       "preset": "presse",
       "scene": "Press",
-      "tags": ["#satisfyingvideo", "#physics"],
+      "tags": [
+        "#satisfyingvideo",
+        "#physics"
+      ],
+      "set": {}
+    },
+    {
+      "id": "countdown",
+      "name": "Bänder: Countdown",
+      "preset": "b_countdown",
+      "scene": "Slice",
+      "tags": [
+        "#countdown",
+        "#physics"
+      ],
+      "set": {}
+    },
+    {
+      "id": "ziel",
+      "name": "Bänder: Ziel erreicht",
+      "preset": "b_ziel",
+      "scene": "Slice",
+      "tags": [
+        "#slowmotion",
+        "#physics"
+      ],
+      "set": {}
+    },
+    {
+      "id": "wucht",
+      "name": "Bänder: Wucht",
+      "preset": "b_wucht",
+      "scene": "Slice",
+      "tags": [
+        "#slowmotion",
+        "#physics"
+      ],
+      "set": {}
+    },
+    {
+      "id": "riese",
+      "name": "Bänder: Riesenkugel",
+      "preset": "b_riese",
+      "scene": "Giant Slice",
+      "tags": [
+        "#slowmotion",
+        "#physics"
+      ],
+      "set": {}
+    },
+    {
+      "id": "neon",
+      "name": "Bänder: Neon",
+      "preset": "b_neon",
+      "scene": "Neon Slice",
+      "tags": [
+        "#neon",
+        "#satisfyingvideo"
+      ],
       "set": {}
     },
     {
@@ -55,18 +180,46 @@
       "name": "Bänder: Republic Day",
       "preset": "leinen",
       "scene": "Tricolour Slice",
-      "tags": ["#republicday", "#india"],
+      "tags": [
+        "#republicday",
+        "#india"
+      ],
       "special": "01-26",
-      "set": { "ropeRebound": "hop", "ropeHop": 650, "ropeSlow": 3, "ropeSlowFrom": 64, "ropeZoom": 1.3, "ropeDust": 0.5, "ropeCam": "front", "ropeColor": "level", "ropeBright": 1, "ropeThick": 4, "ropeGap": 10, "ropePop": false, "ropeFlash": 0.25, "ropeEndSwing": 1.4, "c1": "#FF9933", "c2": "#FFFFFF", "c3": "#1A9E2C" }
+      "set": {
+        "ropeRebound": "hop",
+        "ropeHop": 650,
+        "ropeSlow": 3,
+        "ropeSlowFrom": 64,
+        "ropeZoom": 1.3,
+        "ropeDust": 0.5,
+        "ropeCam": "front",
+        "ropeColor": "level",
+        "ropeBright": 1,
+        "ropeThick": 4,
+        "ropeGap": 10,
+        "ropePop": false,
+        "ropeFlash": 0.25,
+        "ropeEndSwing": 1.4,
+        "c1": "#FF9933",
+        "c2": "#FFFFFF",
+        "c3": "#1A9E2C"
+      }
     },
     {
       "id": "holi",
       "name": "Presse: Holi",
       "preset": "presse",
       "scene": "Holi Press",
-      "tags": ["#holi", "#colors"],
+      "tags": [
+        "#holi",
+        "#colors"
+      ],
       "special": "03-22",
-      "set": { "c1": "#FF2E93", "c2": "#FFC800", "c3": "#2EC4FF" }
+      "set": {
+        "c1": "#FF2E93",
+        "c2": "#FFC800",
+        "c3": "#2EC4FF"
+      }
     }
   ]
 }
