@@ -1,11 +1,21 @@
-// reels render v1.1.0: renders one random, "satisfying" video from the Talfahrt Studio page.
-// usage: AVOID=presse,leinen node render.mjs <studio index.html> <out.mp4> [presetId] [seed]
+// reels render v1.2.0: renders one "satisfying" video from the Talfahrt Studio page.
+// usage: [VARIANT=remix] [AVOID=presse,leinen] [PREVIEW=1] node render.mjs <studio index.html> <out.mp4> [presetId] [seed]
+//   VARIANT: a curated variant from variants.json (Studio preset + extra settings).
+//   Without VARIANT a random preset from POOL is used (AVOID skips presets).
+//   PREVIEW=1 renders 720p30 for a quick look instead of 1080p60.
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const [, , htmlPath, outPath, forcePreset, forceSeed] = process.argv;
 if (!htmlPath || !outPath) { console.error('usage: node render.mjs index.html out.mp4 [preset] [seed]'); process.exit(2); }
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const VARIANTS = JSON.parse(fs.readFileSync(path.join(here, 'variants.json'), 'utf8')).variants;
+const variant = process.env.VARIANT ? VARIANTS.find(v => v.id === process.env.VARIANT) : null;
+if (process.env.VARIANT && !variant) { console.error('unknown variant', process.env.VARIANT, 'known:', VARIANTS.map(v => v.id).join(',')); process.exit(2); }
+const preview = process.env.PREVIEW === '1';
 
 // weights: the bands did best on Instagram, the press did best on TikTok
 const POOL = [
@@ -34,20 +44,24 @@ await page.goto('file://' + path.resolve(htmlPath));
 await page.waitForFunction(() => window.__studio && window.__studio.state() && !window.__studio.broken(), null, { timeout: 120000 });
 
 const known = await page.evaluate(() => window.__studio.presets().map(p => p.id));
-let presetId = forcePreset && known.includes(forcePreset) ? forcePreset : pickWeighted();
-if (!known.includes(presetId)) presetId = 'leinen';
+let presetId = variant ? variant.preset : forcePreset && known.includes(forcePreset) ? forcePreset : pickWeighted();
+if (!known.includes(presetId)) { if (variant) { console.error('variant preset missing in Studio:', presetId); process.exit(1); } presetId = 'leinen'; }
 const seed = forceSeed ? Number(forceSeed) : 1 + Math.floor(Math.random() * 99999);
+const out = preview ? { res: 720, fps: 30 } : { res: 1080, fps: 60 };
 
-const chosen = await page.evaluate(async ({ presetId, seed }) => {
+const chosen = await page.evaluate(async ({ presetId, seed, extra, out }) => {
   const s = window.__studio;
   await s.preset(presetId);
   const isRopes = s.state().machine === 'ropes';
-  // bands: half the time a fresh look from the dice (the dice stay with the bands)
-  if (isRopes && Math.random() < 0.5) await s.dice();
-  await s.set({ seed, sound: true, logo: true, res: 1080, fps: 60, quality: 'mid' });
-  const st = s.state();
-  return { preset: presetId, name: (s.presets().find(p => p.id === presetId) || {}).name, desc: (s.presets().find(p => p.id === presetId) || {}).desc, seed: st.seed, machine: st.machine, colors: [st.c1, st.c2, st.c3], grain: st.grain, title: st.title };
-}, { presetId, seed });
+  // bands without a variant: half the time a fresh look from the dice (the dice stay with the bands)
+  if (!extra && isRopes && Math.random() < 0.5) await s.dice();
+  await s.set(Object.assign({}, extra || {}, { seed, sound: true, logo: true, res: out.res, fps: out.fps, quality: 'mid' }));
+  const st = s.state(), S = s.sim();
+  // the number behind "--until" in the picture
+  const until = !S ? null : S.MACH === 'ropes' ? (S.rope.until || S.rope.total * 2) : Math.round(S.CAP * (S.hudScale || 1));
+  return { preset: presetId, name: (s.presets().find(p => p.id === presetId) || {}).name, desc: (s.presets().find(p => p.id === presetId) || {}).desc, seed: st.seed, machine: st.machine, colors: [st.c1, st.c2, st.c3], grain: st.grain, title: st.title, until };
+}, { presetId, seed, extra: variant ? variant.set : null, out });
+if (variant) Object.assign(chosen, { variant: variant.id, name: variant.name, scene: variant.scene, tags: variant.tags });
 console.log('chosen', JSON.stringify(chosen));
 
 const t0 = Date.now();
