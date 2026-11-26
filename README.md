@@ -7,5 +7,6 @@ Tägliche Studio-Reels für @talfahrt.dev, Version 1.3.1. Quelle ist Talfahrt St
 - `plan.json` ist der Indien-Test ab 25.11.2026: vier Uhrzeiten (A 09:41, B 12:41, C 14:41, D 16:41 deutscher Zeit, in Indien 4,5 Stunden später) und wechselnde Varianten, ab 26.11. nur noch Bänder. Am 4.12. wählt die tägliche Aufgabe die beste Uhrzeit und die drei besten Varianten und schreibt sie nach `result`.
 - `check.sh` prüft Länge, Format, Ton und Dekodierbarkeit und schreibt ein Kontaktbild.
 - `drop.sh` legt das fertige Video als einzige Datei auf den Branch `drop`, von dem Instagram es abholt. Der Branch wird jeden Tag ersetzt, das Repo wächst also nicht.
-- `history.jsonl` hält fest, was wann gepostet wurde (mit Uhrzeit, Slot und Variante). Seit 1.3.1 gibt es Extra-Posts mit `"extra": true`: zusätzliche Reels, die Jerome außer der Reihe will. Sie werden mitgemessen und zählen für die Varianten-Rangliste, aber nicht als Tagespost (die tägliche Aufgabe postet am selben Tag trotzdem) und mit Slot `x` nicht für die Wahl der Uhrzeit.
+- `history.jsonl` hält fest, was wann gepostet wurde (mit Uhrzeit, Slot und Variante).
+- `extra.jsonl` (seit 1.3.1) hält Extra-Posts fest, die Jerome außer der Reihe wollte. Die tägliche Aufgabe liest diese Datei nicht: Ein Extra-Post zählt nicht als Tagespost (sie postet am selben Tag trotzdem) und fließt nicht in Messung und Auswertung ein.
 - `stats.jsonl` sammelt bei jedem Lauf die Zahlen der Reels der letzten zehn Tage (Aufrufe, Reichweite, Wiedergabezeit, Absprungrate), daraus kommen die 24-Stunden-Werte für die Auswertung.
