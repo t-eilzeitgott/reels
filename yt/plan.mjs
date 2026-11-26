@@ -1,4 +1,4 @@
-// reels yt v1.4.0: picks the scenes of one long video until the target length is reached.
+// reels yt v1.4.1: picks the scenes of one long video until the target length is reached.
 // usage: node plan.mjs <studio index.html> <out plan.json> [targetSeconds=3630] [seed]
 // Exact lengths come from the Studio itself. No scene twice in a row, no machine three times in a row, a strong scene first.
 import { chromium } from 'playwright';
@@ -26,7 +26,10 @@ while (total < target && n < 400) {
   if (!segs.length) cand = cand.filter(s => s.hook);
   if (prev && prev2 && prev.machine === prev2.machine) cand = cand.filter(s => s.machine !== prev.machine || !s.machine);
   const sc = pick(cand), pal = POOL.palettes[Math.floor(rnd() * POOL.palettes.length)], seed = 1 + Math.floor(rnd() * 99998);
-  const set = Object.assign({ contour: false, c1: pal[0], c2: pal[1], c3: pal[2] }, sc.set || {});
+  // about every third scene gets a melody that moves on by one note per hit; in December the two Christmas songs join in
+  const MELS = ['ode', 'elise', 'canon', 'lullaby', 'morning', 'greensleeves', 'twinkle'].concat(new Date().getMonth() === 11 ? ['jingle', 'silent', 'jingle', 'silent'] : []);
+  const melody = rnd() < 0.34 ? MELS[Math.floor(rnd() * MELS.length)] : 'none';
+  const set = Object.assign({ contour: false, soundStyle: 'calm', melody, c1: pal[0], c2: pal[1], c3: pal[2] }, sc.set || {});
   const info = await page.evaluate(async ({ preset, set, seed }) => {
     const s = window.__studio; await s.preset(preset); await s.set(Object.assign({ seed }, set));
     const S = s.sim(); return { seconds: S.TL.TOT / 60, machine: s.state().machine };

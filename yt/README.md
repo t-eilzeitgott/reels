@@ -1,9 +1,9 @@
-# yt – lange YouTube-Videos (Version 1.4.0)
+# yt – lange YouTube-Videos (Version 1.4.1)
 
-Einstündige, ruhige „satisfying“ Videos im Querformat 1920×1080 aus dem Talfahrt Studio 3.4, für Wiedergabestunden im YouTube-Partnerprogramm. Zweimal pro Woche rendert eine geplante Aufgabe ein neues Video und lädt es öffentlich auf @talfahrt-dev hoch.
+Einstündige, ruhige „satisfying“ Videos im Querformat 1920×1080 aus dem Talfahrt Studio 3.5 (ruhiger Klang), für Wiedergabestunden im YouTube-Partnerprogramm. Zweimal pro Woche rendert eine geplante Aufgabe ein neues Video und lädt es öffentlich auf @talfahrt-dev hoch.
 
 - `pool.json`: Szenen mit Gewicht, Studio-Einstellungen und englischem Kapitelnamen, dazu die Farbpaletten.
-- `plan.mjs`: wählt Szenen, bis die Ziellänge erreicht ist (keine Szene zweimal hintereinander, keine Maschine dreimal, eine starke Szene zuerst). Die Längen kommen aus dem Studio selbst.
+- `plan.mjs`: wählt Szenen, bis die Ziellänge erreicht ist (keine Szene zweimal hintereinander, keine Maschine dreimal, eine starke Szene zuerst). Die Längen kommen aus dem Studio selbst. Etwa jede dritte Szene bekommt eine gemeinfreie Melodie, die mit jedem Treffer einen Ton weiterspielt (im Dezember auch Jingle Bells und Stille Nacht).
 - `segments.mjs`: rendert die Szenen hochkant (1080×1920, 30 Bilder/s, ohne Höhenlinien), überspringt fertige; mit `WORKERS=2 WORKER=0|1` teilen sich zwei Prozesse die Arbeit.
 - `land.sh`: macht aus einer Szene ein Querformat-Stück (Kammer links, Logo, Zähler und Fortschritt rechts, je 1 s Blende, Lautheit −16 LUFS).
 - `build.sh` und `meta.py`: setzen alles zu `long.mp4` zusammen und schreiben `meta.json` (Titel, Beschreibung mit Kapiteln, Tags).
