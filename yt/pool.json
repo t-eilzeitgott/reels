@@ -1,0 +1,31 @@
+{
+  "note": "Szenen für die langen YouTube-Videos (Querformat, 1 Stunde). w = Gewicht, set = Studio-Einstellungen zusätzlich zum Preset, name = englischer Kapitelname.",
+  "palettes": [["#D7F24B", "#7CC8FF", "#FF6A3D"], ["#BFF3FF", "#7CC8FF", "#5B7CFF"], ["#FFD84B", "#FF6A3D", "#FF3D7A"], ["#D7F24B", "#C77DFF", "#3DFFD0"], ["#FF7AC8", "#FFD84B", "#7CC8FF"], ["#B7F26A", "#3DD6A0", "#F2E8B0"]],
+  "scenes": [
+    { "preset": "b_zeitlupe", "w": 5, "name": "Slow Motion Rope Break", "hook": true },
+    { "preset": "leinen", "w": 4, "name": "Ball vs Ropes" },
+    { "preset": "b_glas", "w": 3, "name": "Glass Rods" },
+    { "preset": "b_regen", "w": 3, "name": "Rainbow Ropes" },
+    { "preset": "b_neon", "w": 3, "name": "Neon Ropes" },
+    { "preset": "b_ziel", "w": 2, "name": "Rope Break to the Goal" },
+    { "preset": "b_riese", "w": 2, "name": "Giant Ball vs Ropes" },
+    { "preset": "b_gummi", "w": 2, "name": "Rubber Ropes" },
+    { "preset": "revier", "w": 4, "name": "Color War", "set": { "length": 90 }, "hook": true },
+    { "preset": "revier_duell", "w": 3, "name": "Color War Duel", "set": { "length": 90 } },
+    { "preset": "revier_wachsen", "w": 2, "name": "Color War Reinforcements", "set": { "length": 90 } },
+    { "preset": "tore", "w": 4, "name": "Multiplier Gates", "set": { "cap": 12000 }, "hook": true },
+    { "preset": "tore_x2", "w": 2, "name": "Multiplier Gates x2", "set": { "cap": 12000 } },
+    { "preset": "tore_plus", "w": 2, "name": "Plus Gates", "set": { "cap": 12000 } },
+    { "preset": "ecken", "w": 4, "name": "One More Side", "set": { "eckMax": 48 } },
+    { "preset": "ecken_fall", "w": 2, "name": "One More Side with Gravity" },
+    { "preset": "klingen", "w": 2, "name": "Three Blades", "set": { "cap": 8000 } },
+    { "preset": "presse", "w": 1, "name": "The Press", "set": { "cap": 8000 } },
+    { "preset": "sanduhr", "w": 2, "name": "Hourglass", "set": { "length": 60 } },
+    { "preset": "galton", "w": 2, "name": "Galton Board", "set": { "length": 60 } },
+    { "preset": "glockenspiel", "w": 1, "name": "Glockenspiel" },
+    { "preset": "brunnen", "w": 1, "name": "Fountain" },
+    { "preset": "mandala", "w": 1, "name": "Mandala", "set": { "cap": 8000 } },
+    { "preset": "wirbel", "w": 1, "name": "Vortex", "set": { "cap": 8000 } },
+    { "preset": "magnet", "w": 1, "name": "Magnet", "set": { "cap": 8000 } }
+  ]
+}
