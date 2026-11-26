@@ -1,6 +1,6 @@
 # reels
 
-Tägliche Studio-Reels für @talfahrt.dev, Version 1.4.1. Quelle ist seit 26.11. Talfahrt Studio 3.5 (Artefakt 08f25725-c038-454b-a787-e3586eea441a) mit ruhigem Klang: nur kleine Geräusche, eigenes Reiß-Geräusch bei den Bändern, auf Wunsch eine bekannte Melodie. Bis 26.11. war es Studio 3.3 (Artefakt e9925525-c709-464f-8de1-1c1ce1a1c3e0).
+Tägliche Studio-Reels für @talfahrt.dev, Version 1.4.2. Quelle ist seit 26.11. Talfahrt Studio 3.7 (Artefakt 08f25725-c038-454b-a787-e3586eea441a) mit ruhigem Klang: nur kleine Geräusche, eigenes Reiß-Geräusch bei den Bändern, auf Wunsch eine bekannte Melodie. Bis 26.11. war es Studio 3.3 (Artefakt e9925525-c709-464f-8de1-1c1ce1a1c3e0).
 
 - `render.mjs` rendert headless ein Video aus dem Talfahrt Studio. Mit `VARIANT=<id>` eine feste Variante aus `variants.json`, sonst ein zufälliges Preset (gewichtet: Bänder, Presse und Klingen vor dem Rest). `PREVIEW=1` rendert schnell in 720p30.
 - `variants.json` enthält die kuratierten Varianten (Studio-Preset plus Einstellungen, Szene und Hashtags für die Caption, Feiertags-Varianten). Seit 1.3.0 dazu die Bänder-Vorlagen aus Studio 3.3: Countdown, Ziel erreicht, Wucht, Riesenkugel, Neon.
@@ -10,4 +10,4 @@ Tägliche Studio-Reels für @talfahrt.dev, Version 1.4.1. Quelle ist seit 26.11.
 - `history.jsonl` hält fest, was wann gepostet wurde (mit Uhrzeit, Slot und Variante).
 - `extra.jsonl` (seit 1.3.1) hält Extra-Posts fest, die Jerome außer der Reihe wollte. Die tägliche Aufgabe liest diese Datei nicht: Ein Extra-Post zählt nicht als Tagespost (sie postet am selben Tag trotzdem) und fließt nicht in Messung und Auswertung ein.
 - `stats.jsonl` sammelt bei jedem Lauf die Zahlen der Reels der letzten zehn Tage (Aufrufe, Reichweite, Wiedergabezeit, Absprungrate), daraus kommen die 24-Stunden-Werte für die Auswertung.
-- `yt/` (seit 1.4.0): lange YouTube-Videos im Querformat, eine Stunde, zweimal pro Woche (siehe `yt/README.md`). Quelle ist dasselbe Studio 3.5.
+- `yt/` (seit 1.4.0): lange YouTube-Videos im Querformat, eine Stunde, zweimal pro Woche (siehe `yt/README.md`). Quelle ist dasselbe Studio 3.7.
