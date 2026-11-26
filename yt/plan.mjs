@@ -1,4 +1,4 @@
-// reels yt v1.4.1: picks the scenes of one long video until the target length is reached.
+// reels yt v1.4.3: picks the scenes of one long video until the target length is reached.
 // usage: node plan.mjs <studio index.html> <out plan.json> [targetSeconds=3630] [seed]
 // Exact lengths come from the Studio itself. No scene twice in a row, no machine three times in a row, a strong scene first.
 import { chromium } from 'playwright';

@@ -1,6 +1,6 @@
-# yt – lange YouTube-Videos (Version 1.4.2)
+# yt – lange YouTube-Videos (Version 1.4.3)
 
-Einstündige, ruhige „satisfying“ Videos im Querformat 1920×1080 aus dem Talfahrt Studio 3.7 (ruhiger Klang), für Wiedergabestunden im YouTube-Partnerprogramm. Zweimal pro Woche rendert eine geplante Aufgabe ein neues Video und lädt es öffentlich auf @talfahrt-dev hoch.
+Einstündige, ruhige „satisfying“ Videos im Querformat 1920×1080 aus dem Talfahrt Studio 3.8 (ruhiger Klang), für Wiedergabestunden im YouTube-Partnerprogramm. Zweimal pro Woche rendert eine geplante Aufgabe ein neues Video und lädt es öffentlich auf @talfahrt-dev hoch.
 
 - `pool.json`: Szenen mit Gewicht, Studio-Einstellungen und englischem Kapitelnamen, dazu die Farbpaletten.
 - `plan.mjs`: wählt Szenen, bis die Ziellänge erreicht ist (keine Szene zweimal hintereinander, keine Maschine dreimal, eine starke Szene zuerst). Die Längen kommen aus dem Studio selbst. Etwa jede dritte Szene bekommt eine gemeinfreie Melodie, die mit jedem Treffer einen Ton weiterspielt (im Dezember auch Jingle Bells und Stille Nacht).
@@ -12,3 +12,5 @@ Einstündige, ruhige „satisfying“ Videos im Querformat 1920×1080 aus dem Ta
 - `history.jsonl`: was wann hochgeladen wurde.
 
 Rendern dauert etwa 2 bis 2,5 Stunden je Stunde Video (zwei Kerne), Zusammensetzen etwa 30 Minuten.
+
+Seit 1.4.3 sind die Szenen aus Studio 3.8 im Pool: Kaleidoskop (sechs Räume), Mond, Brennpunkt (Kugeln und Lichtstrahlen), Domino, Pendelwelle, Sortieren und Passt.
