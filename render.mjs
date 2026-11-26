@@ -1,6 +1,6 @@
-// reels render v1.2.0: renders one "satisfying" video from the Talfahrt Studio page.
+// reels render v1.3.0: renders one "satisfying" video from the Talfahrt Studio page.
 // usage: [VARIANT=remix] [AVOID=presse,leinen] [PREVIEW=1] node render.mjs <studio index.html> <out.mp4> [presetId] [seed]
-//   VARIANT: a curated variant from variants.json (Studio preset + extra settings).
+//   VARIANT: a curated variant from variants.json (Studio preset + extra settings). A variant may fix its own seed and caption.
 //   Without VARIANT a random preset from POOL is used (AVOID skips presets).
 //   PREVIEW=1 renders 720p30 for a quick look instead of 1080p60.
 import { chromium } from 'playwright';
@@ -46,7 +46,7 @@ await page.waitForFunction(() => window.__studio && window.__studio.state() && !
 const known = await page.evaluate(() => window.__studio.presets().map(p => p.id));
 let presetId = variant ? variant.preset : forcePreset && known.includes(forcePreset) ? forcePreset : pickWeighted();
 if (!known.includes(presetId)) { if (variant) { console.error('variant preset missing in Studio:', presetId); process.exit(1); } presetId = 'leinen'; }
-const seed = forceSeed ? Number(forceSeed) : 1 + Math.floor(Math.random() * 99999);
+const seed = forceSeed ? Number(forceSeed) : variant && variant.seed ? variant.seed : 1 + Math.floor(Math.random() * 99999);
 const out = preview ? { res: 720, fps: 30 } : { res: 1080, fps: 60 };
 
 const chosen = await page.evaluate(async ({ presetId, seed, extra, out }) => {
@@ -58,10 +58,10 @@ const chosen = await page.evaluate(async ({ presetId, seed, extra, out }) => {
   await s.set(Object.assign({}, extra || {}, { seed, sound: true, logo: true, res: out.res, fps: out.fps, quality: 'mid' }));
   const st = s.state(), S = s.sim();
   // the number behind "--until" in the picture
-  const until = !S ? null : S.MACH === 'ropes' ? (S.rope.until || S.rope.total * 2) : Math.round(S.CAP * (S.hudScale || 1));
+  const until = !S ? null : S.MACH === 'ropes' ? (S.rope.until || S.rope.total * 2) : S.MACH === 'duell' && S.proc ? S.proc.until : Math.round(S.CAP * (S.hudScale || 1));
   return { preset: presetId, name: (s.presets().find(p => p.id === presetId) || {}).name, desc: (s.presets().find(p => p.id === presetId) || {}).desc, seed: st.seed, machine: st.machine, colors: [st.c1, st.c2, st.c3], grain: st.grain, title: st.title, until };
 }, { presetId, seed, extra: variant ? variant.set : null, out });
-if (variant) Object.assign(chosen, { variant: variant.id, name: variant.name, scene: variant.scene, tags: variant.tags });
+if (variant) Object.assign(chosen, { variant: variant.id, name: variant.name, scene: variant.scene, tags: variant.tags }, variant.caption ? { caption: variant.caption } : {});
 console.log('chosen', JSON.stringify(chosen));
 
 const t0 = Date.now();

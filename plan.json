@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0",
-  "note": "India test (from 2026-11-25). Times are Europe/Berlin; India (IST) is UTC+5:30. Before 2026-12-01 slot D is not used because Sattelfest reels go out at 16:30. Each test reel is measured at about 24 h; on evaluate_on the run picks the best slot and the three best variants and stores them in result. From 2026-11-26 the test runs only band variants (Studio 3.3), because the bands do best on every platform.",
+  "version": "1.5.0",
+  "note": "India test (from 2026-11-25). Times are Europe/Berlin; India (IST) is UTC+5:30. Before 2026-12-01 slot D is not used because Sattelfest reels go out at 16:30. Each test reel is measured at about 24 h; on evaluate_on the run picks the best slot and the three best variants and stores them in result. From 2026-11-26 the test runs only band variants, because the bands do best on every platform. From 2026-11-27 to 2026-12-01 the band series (see series) runs instead of the test: one ready-made video per day at slot A. The test pauses for these five days; its remaining seven days moved from 11-27..12-03 to 12-02..12-08 and evaluate_on from 12-04 to 12-09. Series reels are measured like all others but do not count in the slot and variant evaluation.",
   "slots": {
     "A": {
       "time": "09:41",
@@ -19,6 +19,107 @@
       "ist": "21:11"
     }
   },
+  "series": {
+    "name": "Bänder-Serie: Blau gegen Orange und das goldene Band",
+    "ordered": "2026-11-26",
+    "slot": "A",
+    "from": "2026-11-27",
+    "until": "2026-12-01",
+    "summary_on": "2026-12-02",
+    "note": "Five ready-made videos (Studio 3.9, 1080p60, 32 s), rendered and checked on 2026-11-26. They tell one story (score 1:0, 1:1, 1:2; record 1024, then 2048), so they are posted exactly as they are, in this order, one per day. serie.sh fetches the file of a day and checks its sha256. The same video can be rendered again with VARIANT=<variant> node render.mjs (the variant fixes seed and settings).",
+    "days": [
+      {
+        "date": "2026-11-27",
+        "day": 1,
+        "variant": "serie1",
+        "preset": "duell",
+        "seed": 3,
+        "name": "Serie Tag 1: Duell, Blau gewinnt 1:0",
+        "what": "Duell Blau gegen Orange: sechs Führungswechsel, Blau gewinnt knapp, Stand 1:0",
+        "branch": "serie-1",
+        "path": "serie1.mp4",
+        "file": "https://raw.githubusercontent.com/t-eilzeitgott/reels/a0946e1b9e810b6522afe29f5f1b85709dc50b0a/serie1.mp4",
+        "sha256": "f0ee583cdab3000e37c86aa6d35b4ace41e2302b9c786b09a067f47d3eddaf56",
+        "size": 40788886,
+        "seconds": 32,
+        "until": 2048,
+        "thumb_ms": 27300,
+        "caption": "Day 1: Satisfying Slice Ball Race until 2048\n#satisfying #oddlysatisfying #slowmotion #physics"
+      },
+      {
+        "date": "2026-11-28",
+        "day": 2,
+        "variant": "serie2",
+        "preset": "b_endgegner_knapp",
+        "seed": 7,
+        "name": "Serie Tag 2: goldenes Band hält, ein Treffer fehlt",
+        "what": "Goldenes Band vor dem letzten Block: Es hält zwei Treffer aus, für den dritten läuft die Uhr ab (Rekord bleibt 1024)",
+        "branch": "serie-2",
+        "path": "serie2.mp4",
+        "file": "https://raw.githubusercontent.com/t-eilzeitgott/reels/0e06e30372f8e0cf321d2ced91c1bb8cace95785/serie2.mp4",
+        "sha256": "96d242f6be34d573e8c5224b07b1df2c59bc9b50257a5d3199f1d0f290bee792",
+        "size": 41105648,
+        "seconds": 32,
+        "until": 2048,
+        "thumb_ms": 27750,
+        "caption": "Day 2: Satisfying Slice Ball vs Golden Band until 2048\n#satisfying #oddlysatisfying #slowmotion #physics"
+      },
+      {
+        "date": "2026-11-29",
+        "day": 3,
+        "variant": "serie3",
+        "preset": "duell",
+        "seed": 3,
+        "name": "Serie Tag 3: Duell, Orange gleicht aus 1:1",
+        "what": "Duell: wieder sechs Führungswechsel, Orange gleicht aus, Stand 1:1",
+        "branch": "serie-3",
+        "path": "serie3.mp4",
+        "file": "https://raw.githubusercontent.com/t-eilzeitgott/reels/44853a22facdf75744eb7c8d7975c2ec016d8bbf/serie3.mp4",
+        "sha256": "bd5d842d48776c23f2b7ff52f7c93d6c27a21764eed0da03790dab631650a23a",
+        "size": 40950521,
+        "seconds": 32,
+        "until": 2048,
+        "thumb_ms": 27500,
+        "caption": "Day 3: Satisfying Slice Ball Race until 2048\n#satisfying #oddlysatisfying #slowmotion #physics"
+      },
+      {
+        "date": "2026-11-30",
+        "day": 4,
+        "variant": "serie4",
+        "preset": "b_endgegner",
+        "seed": 7,
+        "name": "Serie Tag 4: goldenes Band reißt, neuer Rekord 2048",
+        "what": "Goldenes Band reißt beim dritten Treffer, 2048 erreicht: NEW RECORD",
+        "branch": "serie-4",
+        "path": "serie4.mp4",
+        "file": "https://raw.githubusercontent.com/t-eilzeitgott/reels/424894018d4bf5595f279d6cf188bd5b0a99f982/serie4.mp4",
+        "sha256": "6a53493805ca030f6a0b6b9531f510148ba92a544841afca9bd6efaecbf26577",
+        "size": 42124042,
+        "seconds": 32,
+        "until": 2048,
+        "thumb_ms": 28000,
+        "caption": "Day 4: Satisfying Slice Ball vs Golden Band until 2048\n#satisfying #oddlysatisfying #slowmotion #physics"
+      },
+      {
+        "date": "2026-12-01",
+        "day": 5,
+        "variant": "serie5",
+        "preset": "duell_gold",
+        "seed": 3,
+        "name": "Serie Tag 5: Finale mit goldenen Bändern, Orange gewinnt 1:2",
+        "what": "Finale mit goldenem Band auf beiden Seiten: Orange reißt es zuerst und gewinnt die Serie 2:1 (im Bild 1:2)",
+        "branch": "serie-5",
+        "path": "serie5.mp4",
+        "file": "https://raw.githubusercontent.com/t-eilzeitgott/reels/d72741050f8535becfdbb6a8619fa4f4863ea5d9/serie5.mp4",
+        "sha256": "84339f25108cf81c4376ba686acd1aa7829e4216fe0701c4e6e1de1748af253f",
+        "size": 40752575,
+        "seconds": 32,
+        "until": 2048,
+        "thumb_ms": 25600,
+        "caption": "Day 5: Satisfying Slice Ball Final until 2048\n#satisfying #oddlysatisfying #slowmotion #physics"
+      }
+    ]
+  },
   "test": [
     {
       "date": "2026-11-25",
@@ -32,42 +133,42 @@
       "variant": "countdown"
     },
     {
-      "date": "2026-11-27",
+      "date": "2026-12-02",
       "slot": "A",
       "variant": "rainbow"
     },
     {
-      "date": "2026-11-28",
+      "date": "2026-12-03",
       "slot": "B",
       "variant": "ziel"
     },
     {
-      "date": "2026-11-29",
+      "date": "2026-12-04",
       "slot": "C",
       "variant": "wucht"
     },
     {
-      "date": "2026-11-30",
+      "date": "2026-12-05",
       "slot": "A",
       "variant": "neon"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-12-06",
       "slot": "D",
       "variant": "remix"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-07",
       "slot": "B",
       "variant": "riese"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-08",
       "slot": "D",
       "variant": "countdown"
     }
   ],
-  "evaluate_on": "2026-12-04",
+  "evaluate_on": "2026-12-09",
   "evaluate_slot": "D",
   "result": null
 }
